@@ -9,13 +9,14 @@
 	<body>
         <style>
             #play {
-                margin-top: 25%;
+                width: 100%;
+                height: 100%;
                 margin-left: auto;
                 margin-right: auto;
             }
             #play canvas {
                 margin: 0 auto;
-                width: 100%;
+                height: 100%;
             }
         </style>
 		<div id="container">
@@ -54,8 +55,9 @@
 				container = document.querySelector( '#play' );
 				document.body.appendChild( container );
 
-				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
-				camera.position.set( 0.0, - 10, 20 * 3.5 );
+
+				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.set( 0, 0, 40 );
 
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0x000000 );
