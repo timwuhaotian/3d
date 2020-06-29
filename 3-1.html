@@ -73,9 +73,9 @@
 
 				// material samples
                 console.log('textureCube', textureCube)
-				var cubeMaterial3 = new THREE.MeshPhongMaterial( { color: 0xccddff, envMap: textureCube, refractionRatio: 0.98, reflectivity: 0.9 } );
-				var cubeMaterial2 = new THREE.MeshPhongMaterial( { color: 0xccfffd, envMap: textureCube, refractionRatio: 0.985 } );
-				var cubeMaterial1 = new THREE.MeshPhongMaterial( { color: 0xffffff, envMap: textureCube, refractionRatio: 0.98 } );
+				var cubeMaterial3 = new THREE.MeshPhongMaterial( { color: 0xfff192, envMap: textureCube, refractionRatio: 0.98, reflectivity: 0.9 } ); // left one
+				var cubeMaterial2 = new THREE.MeshPhongMaterial( { color: 0xffc28c, envMap: textureCube, refractionRatio: 0.985 } ); // right one
+				var cubeMaterial1 = new THREE.MeshPhongMaterial( { color: 0xffffff, envMap: textureCube, refractionRatio: 0.98 } ); // middle one
 
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
