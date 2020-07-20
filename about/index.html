@@ -1,0 +1,650 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>About</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4a4e97b6-c2ae-4006-9471-fa1ac9acd776" class="page sans"><header><div class="page-header-icon undefined"></div>
+    <h1 class="page-title">&nbsp;</h1>
+    <h1 class="page-title">About</h1></header><div class="page-body"><p id="d20e1c49-a540-413a-8ac4-efa91af0bcd0" class="">@<a href="https://www.instagram.com/rca_fashion/">rca_fashion </a></p><p id="02007125-c530-4851-9bdb-ed2450dcd4ad" class="">@<a href="https://www.instagram.com/fame_rca/">fame_rca</a></p><p id="38daec14-9b72-4a3d-9e46-16bbb1f9c8bd" class="">
+</p><p id="ebaf57d0-aa88-4e84-970f-9a7190ba3f90" class="">
+</p><p id="870fac82-c0cf-4c72-baa5-466a907a8898" class="">
+</p><p id="b4ac6a51-2d4d-4408-8206-aef4b704b9f4" class="">Integrated within the Fashion MA but with their own dedicated studio facility machines and technicians, our Footwear, Accessories, Millinery and Eyewear (<a href="https://www.rca.ac.uk/schools/school-of-design/menswear/#curriculum">FAME</a>) specialisms offer students the platform to explore these niche areas of study that form the backbone of the fashion industry. First established in 1996, the exciting new addition of eyewear opens up a whole new vision for fashion design, incorporating VR, AR and mix of realities that are yet to be fully explored by the industry.</p><p id="95c2d567-53de-439b-ae20-5150c21bb5bd" class="">
+</p><p id="b39f1010-f3ca-482d-958d-c91c96b55c45" class="">Here are some Year 1 works about the future of Fashion during this online period. Visit <a href="https://2020.rca.ac.uk/tags/fashion">RCA website</a> for 2020 graduation works.</p><p id="27fe0f8a-f0f6-4faf-8ea6-c87346296b68" class="">
+</p><p id="ae461bd6-d6c5-4115-823e-b0dc9caba6af" class="">Website: <a href="https://www.instagram.com/panny.yu/">PANNY YU</a>, TIM WU</p><p id="0855eca1-55db-4520-ae67-6f94db34932c" class="">Thanks: Open source contributors</p><p id="fd007a25-f5ed-43d1-9a07-e790d350744a" class="">
+</p><p id="562a1611-9e2d-4073-9a5d-6e21cbd5795e" class="">
+</p><p id="88122be7-166b-4ad9-b4df-6945f17b8f3b" class="">
+</p><div id="72b12523-d294-4498-bcf6-d9b57723d635" class="column-list"><div id="ccba1836-2a8c-4d55-b775-a9a2aa70ead0" style="width:33.33333333333333%" class="column"><figure id="af406bab-91a4-4f2e-80d3-ab1ae0a5e733" class="image"><a href="About%20af406bab91a44f2e80d3ab1ae0a5e733/Yantong_Chen.png"><img style="width:336px" src="About%20af406bab91a44f2e80d3ab1ae0a5e733/Yantong_Chen.png"/></a></figure></div><div id="38085bc7-cac5-4924-bb15-e88204be945c" style="width:33.33333333333334%" class="column"><p id="a367ba8c-bca5-4b7e-91ef-7b8be6c067fc" class="">
+</p></div><div id="d63d76bb-49d6-48bb-aa89-58060d75557f" style="width:33.33333333333333%" class="column"><p id="336a2891-8bf3-456d-b51a-8ba0e048ede5" class="">
+</p></div></div><figure id="f16397d8-8993-4464-95de-e062ede96ad2" class="link-to-page"><a href="http://hereisrcafame.uk/yantong.chen
+">&gt; YANTONG CHEN | Surreal Animal Paradise</a></figure>
+<div id="b4975374-f661-4e11-94f2-955a937d55e3" class="column-list"><div id="e552fafa-8d26-4cf4-80fe-eab23368c5d8" style="width:33.333333333333336%" class="column"><p id="52874aa0-3aa8-485e-9841-ac62e7ca0155" class="">
+</p></div><div id="4de368b0-c2de-49ee-abf9-7d4c2b4f4fed" style="width:33.33333333333333%" class="column"><figure id="a02ab1be-e73b-42d8-9481-f62cd5160618" class="image"><a href="About%20af406bab91a44f2e80d3ab1ae0a5e733/Panny_Yu.png"><img style="width:475px" src="About%20af406bab91a44f2e80d3ab1ae0a5e733/Panny_Yu.png"/></a></figure><figure id="8b734727-6f77-4536-b793-d57529a3ba44" class="link-to-page"><a href="http://hereisrcafame.uk/peini.yu">&gt; PEINI YU | Seeing</a></figure></div><div id="62b2eb8b-d786-4a25-93ff-9bee6ef11063" style="width:33.33333333333334%" class="column"><p id="fad3c40b-56d5-462e-b6f9-1c6bda37508b" class="">
+</p></div></div><div id="df5fce2d-f72f-4c89-9fc6-d5b9f3d71323" class="column-list"><div id="15634265-8c33-4513-b3c5-5ab0059785d6" style="width:33.33333333333333%" class="column"><p id="953c56ef-0d30-40ed-a10f-391a7be2d82c" class="">
+</p></div><div id="a606afb5-0806-4d84-a126-40f43f0f802e" style="width:33.33333333333333%" class="column"><p id="2c48c6ee-9198-4e20-9916-382f32195342" class="">
+</p></div><div id="b0f6b15f-d5a6-427c-90a7-52badedf2897" style="width:33.33333333333334%" class="column"><figure id="e64a3b73-2de2-4a24-af4e-052069690739" class="image"><a href="About%20af406bab91a44f2e80d3ab1ae0a5e733/Yunpei_Li.png"><img style="width:450px" src="About%20af406bab91a44f2e80d3ab1ae0a5e733/Yunpei_Li.png"/></a></figure><figure id="eccd3747-29b9-455d-8d60-945c63386357" class="link-to-page"><a href="http://hereisrcafame.uk/yunpei.li">&gt; YUNPEI LI | Carry Your Life</a></figure></div></div><div id="5b46d07c-2296-49cd-aac3-fd4a9b41b4c3" class="column-list"><div id="c913d161-f120-47ab-8394-7d5a387e6886" style="width:33.33333333333333%" class="column"><p id="81979a75-7afc-43a6-bd6d-9974cfab3b77" class="">
+</p></div><div id="4b259b12-a502-4f9e-a23e-c9f0f5342266" style="width:33.333333333333336%" class="column"><figure id="d5697380-1d7b-44b0-890b-b55debd289e0" class="image"><a href="About%20af406bab91a44f2e80d3ab1ae0a5e733/Yushan_Liu.png"><img style="width:439px" src="About%20af406bab91a44f2e80d3ab1ae0a5e733/Yushan_Liu.png"/></a></figure><figure id="5f328c34-d86c-4e38-8e7d-b614f97685c2" class="link-to-page"><a href="http://hereisrcafame.uk/yushan.liu">&gt; YUSHAN LIU | Cicada Wing</a></figure></div><div id="e38bbd65-2364-4bc2-9c51-a971219467c1" style="width:33.333333333333336%" class="column"><p id="e426db4e-a9c8-4126-aea0-1c60ad12be29" class="">
+</p><p id="81312b3f-7863-4fa1-9f6c-d8c872878c8c" class="">
+</p></div></div><div id="f54faf3f-1b7a-4a85-bcfb-b2e9140f71bd" class="column-list"><div id="d39e37d6-b7ea-42a4-9089-18440328d4d2" style="width:33.33333333333333%" class="column"><figure id="24270517-4746-4071-a5a1-f5c3a8570227" class="image"><a href="About%20af406bab91a44f2e80d3ab1ae0a5e733/Gao_Yu.png"><img style="width:577px" src="About%20af406bab91a44f2e80d3ab1ae0a5e733/Gao_Yu.png"/></a></figure></div><div id="e301eb08-1df8-47e6-b362-06e277394cf7" style="width:33.33333333333334%" class="column"><p id="b8eaf355-db55-427b-934e-752f035db67d" class="">
+</p><p id="a0acbd05-c3fa-413b-b114-ff10c9d31303" class="">
+</p></div><div id="f7d9d19a-b929-44e4-86d3-1dade1b28d0d" style="width:33.33333333333333%" class="column"><p id="eea320d3-79c4-4673-8221-64e4eaf5cb0b" class="">
+</p></div></div><figure id="714b6752-2729-49c2-85c3-e75fb176ebc0" class="link-to-page"><a href="http://hereisrcafame.uk/yu.gao">&gt; YU GAO | Transparent Waist Bag</a></figure><p id="d7897755-0c92-447d-a964-ae69c6e57264" class="">
+</p><p id="818c5a63-ee99-4dbd-8b35-20d5482d4357" class="">
+</p><p id="f6489446-cf6c-414b-81bd-738e019a8699" class="">
+</p><p id="3c20d03a-f111-4adf-9b28-45c488c17c35" class=""><a href="http://hereisrcafame.uk">&lt;&lt;&lt; Back to homepage</a></p><hr id="7a3c5eab-e51d-4aaa-a642-cd85175ec36b"/><p id="a3f84207-420f-471c-8b0d-5bf33299762e" class="">©RCA FAME 2020</p><p id="d3be65c6-9e7f-4719-82b0-cb2cdb95459d" class="">
+</p></div></article></body></html>
