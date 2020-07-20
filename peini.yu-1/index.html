@@ -8,6 +8,11 @@
 	</head>
 	<body>
         <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+                border: 0;
+            }
             #play {
                 width: 100%;
                 height: 100%;
@@ -25,14 +30,14 @@
 
 		<script type="module">
 
-			import * as THREE from './build/three.module.js';
+			import * as THREE from '/build/three.module.js';
 
-			import Stats from './jsm/libs/stats.module.js';
+			import Stats from '/jsm/libs/stats.module.js';
 
-			import { GUI } from './jsm/libs/dat.gui.module.js';
-			import { OrbitControls } from './jsm/controls/OrbitControls.js';
-			import { OBJLoader } from './jsm/loaders/OBJLoader.js';
-			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
+			import { GUI } from '/jsm/libs/dat.gui.module.js';
+			import { OrbitControls } from '/jsm/controls/OrbitControls.js';
+			import { OBJLoader } from '/jsm/loaders/OBJLoader.js';
+			import { RGBELoader } from '/jsm/loaders/RGBELoader.js';
 
 			var container, stats;
 			var params = {
@@ -97,7 +102,7 @@
 				};
 
 				var loader = new OBJLoader( manager );
-				loader.load( './panny-obj/object-1-1.obj', function ( object ) {
+				loader.load( '/panny-obj/object-1-1.obj', function ( object ) {
 
 					object && object.traverse( function ( child ) {
                         console.log('child', child)
