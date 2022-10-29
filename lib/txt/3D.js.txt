@@ -1,5 +1,3 @@
-// - Global variables -
-
 // Graphics variables
 var container, stats;
 var camera, controls, scene, renderer;
@@ -66,113 +64,114 @@ var screenD;
 var screenT;
 var screenM;
 var t = 0;
-var commonScale = [2, 2, 2];
-var objectsURI = [
+var objectsURI = window.customObjectsURI || [
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf3f698d20bfb0842f82f_visual-circle.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf3f57080450fce3f6b24_mouse.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf3f5618e0aa33fa96977_visual-chain-1.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf02477408d21d571a2dc_visual-qr-centre-stay-still.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf024448404343956b391_add-visual-flower.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf02461099e22241ac793_visual-ring.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf024b16556fbb3de41ae_visual-exhibition.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf023708045d2643f4f1c_add-visual-flower-1.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf023708045d2643f4f1c_add-visual-flower-1.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf02396e6ef4d94579f1a_add-visual-leaf%20.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf023f51427e1377da231_visual-diamond-1.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf0234cc38f26af9312ed_visual-jewellery.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf02370620b72cbc583ca_visual-diamond-4.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cedde96e6ef4045578be0_visual-chain-3.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf3f6c7a1a704e165e93f_visual-chain-2.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf3f5f95dcc179020af99_glb-test.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf02497c263831e0df7b7_add-visual-flower-2.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf024b5963668605f7e78_add-visual-ball.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf024c8f1b2588a99d588_visual-spring.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf024c7a1a7621565ae25_add-visual-diamond.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf0247b758dc5dfc1246f_visual-second.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf023618e0a90dca9486b_add-visual-diamond-6.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf023f57282c49aedb6e6_visual-virtual.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf0234cc38fd3a99312ee_visual-flower.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf02396e6ef7664579f19_visual-diamond-2.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
   {
     uri: 'https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635cf0236c0ae0d2d95332d0_visual-diamond-3.glb.txt',
-    scale: commonScale,
+    scale: window.commonScale,
   },
 ];
+
+var completedQueue = [];
 
 var colliders = {
   website: [3, 5, 3],
@@ -215,22 +214,30 @@ var revision_hdri;
 var custom_hdri;
 
 $(document).ready(function () {
-  if (WEBGL.isWebGLAvailable() === false) {
-    document.body.appendChild(WEBGL.getWebGLErrorMessage());
-    document.getElementById('canvas-wrapper').innerHTML = '';
-  }
+  setTimeout(() => {
+    const canvas = document.createElement('div');
 
-  if ('ontouchstart' in document.documentElement) {
-    touch = true;
-  }
+    canvas.innerHTML = `<div id="canvas-wrapper">
+  <canvas id="canvas"></canvas>
+</div>`;
+    document.body.replaceChildren(canvas);
+    if (WEBGL.isWebGLAvailable() === false) {
+      document.body.appendChild(WEBGL.getWebGLErrorMessage());
+      document.getElementById('canvas-wrapper').innerHTML = '';
+    }
 
-  var ua = navigator.userAgent.toLowerCase();
-  isAndroid = ua.indexOf('android') > -1; //&& ua.indexOf("mobile");
+    if ('ontouchstart' in document.documentElement) {
+      touch = true;
+    }
 
-  resizeX = window.innerWidth;
-  resizeY = window.innerHeight;
+    var ua = navigator.userAgent.toLowerCase();
+    isAndroid = ua.indexOf('android') > -1; //&& ua.indexOf("mobile");
 
-  init();
+    resizeX = window.innerWidth;
+    resizeY = window.innerHeight;
+
+    init();
+  }, 0);
 });
 
 function init() {
@@ -360,38 +367,6 @@ function initGraphics() {
 
   var textureLoader = new THREE.TextureLoader(manager);
 
-  // hdri = textureLoader.load('./images/panny-yu.png');
-  // hdri.mapping = THREE.SphericalReflectionMapping;
-
-  // hervisions_hdri = textureLoader.load('./images/yunpei-li.png');
-  // hervisions_hdri.mapping = THREE.SphericalReflectionMapping;
-
-  // hervisions_hdri2 = textureLoader.load('./images/yushan-liu.png');
-  // hervisions_hdri2.mapping = THREE.SphericalReflectionMapping;
-
-  // revision_hdri = textureLoader.load('./images/h1.png');
-  // revision_hdri.mapping = THREE.SphericalReflectionMapping;
-
-  // custom_hdri = textureLoader.load('./images/h1.png');
-  // custom_hdri.flipY = false;
-  // custom_hdri.encoding = THREE.sRGBEncoding;
-  // custom_hdri.mapping = THREE.SphericalReflectionMapping;
-
-  // screenD = textureLoader.load(screenDesktop.url);
-  // screenD.wrapS = THREE.RepeatWrapping;
-  // screenD.wrapT = THREE.RepeatWrapping;
-  // screenD.repeat.set(1, 1 / screenDesktop.num);
-
-  // screenT = textureLoader.load(screenTablet.url);
-  // screenT.wrapS = THREE.RepeatWrapping;
-  // screenT.wrapT = THREE.RepeatWrapping;
-  // screenT.repeat.set(1, 1 / screenTablet.num);
-
-  // screenM = textureLoader.load(screenMobile.url);
-  // screenM.wrapS = THREE.RepeatWrapping;
-  // screenM.wrapT = THREE.RepeatWrapping;
-  // screenM.repeat.set(1, 1 / screenMobile.num);
-
   var manager = new THREE.LoadingManager();
   manager.onProgress = function (item, loaded, total) {
     // console.log( item, loaded, total );
@@ -400,41 +375,42 @@ function initGraphics() {
   var svg = document.getElementById('svg-object');
   $.LoadingOverlay('show');
   NProgress.start();
-  importObjects(0, manager);
+  importObjects(manager);
 }
 
-function importObjects(index, manager) {
-  if (index >= objectsURI.length) {
-    createObjects();
-    return;
-  }
+function importObjects(manager) {
   var glbLoader = new THREE.GLTFLoader(manager);
-  var currentObject = objectsURI[index];
-  glbLoader.load(currentObject.uri, function (readObj) {
-    // ./glb/visual-qr-centre-stay-still.glb
-    if (currentObject.uri.indexOf('visual-qr-centre-stay-still.glb') !== -1) {
-      var box = new THREE.Box3().setFromObject(readObj.scene);
-      var center = new THREE.Vector3();
-      box.getCenter(center);
-      readObj.scene.position.sub(center); // center the model
-      readObj.scene.rotation.y = 0;
-      readObj.scene.rotation.x = (-90 * Math.PI) / 180;
-      readObj.scene.rotation.z = 0;
-      readObj.scene.scale.set(3, 3, 3);
-      scene.add(readObj.scene);
-      importObjects(index + 1, manager);
-      return;
-    }
-    readObj.scene &&
-      readObj.scene.traverse(function (child) {
-        if (child.isMesh) {
-          child.material.transparent = true;
-          // child.material.envMap = custom_hdri;
-        }
-      });
-    readObj.scene.userData.customScale = currentObject.scale;
-    objs.push(readObj.scene);
-    importObjects(index + 1, manager);
+  objectsURI.forEach((glb) => {
+    glbLoader.load(glb.uri, function (readObj) {
+      // ./glb/visual-qr-centre-stay-still.glb
+      if (glb.uri.indexOf('visual-qr-centre-stay-still.glb') !== -1) {
+        var box = new THREE.Box3().setFromObject(readObj.scene);
+        var center = new THREE.Vector3();
+        box.getCenter(center);
+        readObj.scene.position.sub(center); // center the model
+        readObj.scene.rotation.y = 0;
+        readObj.scene.rotation.x = (-90 * Math.PI) / 180;
+        readObj.scene.rotation.z = 0;
+        readObj.scene.scale.set(4, 4, 4);
+        scene.add(readObj.scene);
+        completedQueue.push(true);
+        return;
+      }
+      readObj.scene &&
+        readObj.scene.traverse(function (child) {
+          if (child.isMesh) {
+            child.material.transparent = true;
+            // child.material.envMap = custom_hdri;
+          }
+        });
+      readObj.scene.userData.customScale = glb.scale;
+      objs.push(readObj.scene);
+      completedQueue.push(true);
+      if (completedQueue.length === objectsURI.length) {
+        createObjects();
+        return;
+      }
+    });
   });
 }
 

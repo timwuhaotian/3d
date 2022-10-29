@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FAME</title>
+    <title>Second Life Jewellery</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-    <link rel="stylesheet" href="./nprogress.css" />
-    <link rel="icon" type="image/png" href="/panny-obj/favicon.png" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
       integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
@@ -21,10 +19,93 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./build/three.min.js" type="text/javascript"></script>
-  </head>
-  <body>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d14bc4cc38fd51e9462c9_three.min.js.txt"
+      type="text/javascript"
+    ></script>
     <style>
+      /* Make clicks pass-through */
+      #nprogress {
+        pointer-events: none;
+      }
+
+      #nprogress .bar {
+        background: #29d;
+
+        position: fixed;
+        z-index: 1031;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 2px;
+      }
+
+      /* Fancy blur effect */
+      #nprogress .peg {
+        display: block;
+        position: absolute;
+        right: 0px;
+        width: 100px;
+        height: 100%;
+        box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+        opacity: 1;
+
+        -webkit-transform: rotate(3deg) translate(0px, -4px);
+        -ms-transform: rotate(3deg) translate(0px, -4px);
+        transform: rotate(3deg) translate(0px, -4px);
+      }
+
+      /* Remove these to get rid of the spinner */
+      #nprogress .spinner {
+        display: block;
+        position: fixed;
+        z-index: 1031;
+        top: 15px;
+        right: 15px;
+      }
+
+      #nprogress .spinner-icon {
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+
+        border: solid 2px transparent;
+        border-top-color: #29d;
+        border-left-color: #29d;
+        border-radius: 50%;
+
+        -webkit-animation: nprogress-spinner 400ms linear infinite;
+        animation: nprogress-spinner 400ms linear infinite;
+      }
+
+      .nprogress-custom-parent {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .nprogress-custom-parent #nprogress .spinner,
+      .nprogress-custom-parent #nprogress .bar {
+        position: absolute;
+      }
+
+      @-webkit-keyframes nprogress-spinner {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @keyframes nprogress-spinner {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
       html,
       body {
         padding: 0;
@@ -42,8 +123,8 @@
         margin-left: auto;
         margin-right: auto;
         overflow: hidden;
-        background: url(./images/background_pixelated.jpg) center center
-          no-repeat;
+        background: url(https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d1aa13ea935397df87afe_background_pixelated.jpg)
+          center center no-repeat;
         background-size: cover;
       }
       #canvas-wrapper canvas {
@@ -56,40 +137,63 @@
           'Segoe UI Symbol';
       }
     </style>
-    <!-- <div id="about_link">
-            </p><p id="54ff502e-28bd-4c91-acd8-12775e2cec92" class="sans"><a href="/about">&gt;&gt;&gt; About</a></p><p id="8c41e0ac-c60e-4f45-972d-c85d80ea0518" class="">
-        </div> -->
+  </head>
+  <body>
     <div id="canvas-wrapper">
       <canvas id="canvas"></canvas>
     </div>
-
-    <script type="text/javascript">
-      var projectNumber = 22;
-      var screenDesktop = { url: './images/desktop.jpg', num: 10 };
-      var screenTablet = { url: './images/tablet.jpg', num: 9 };
-      var screenMobile = { url: './images/mobile.jpg', num: 8 };
-      history.scrollRestoration = 'manual';
-    </script>
-    <script src="./lib/overlay.js" type="text/javascript"></script>
-    <script src="./js/libs/stats.min.js" type="text/javascript"></script>
-    <script src="./js/libs/dat.gui.min.js" type="text/javascript"></script>
     <script
-      src="./js/controls/OrbitControls.js"
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d1320b16556208fdf8fc5_overlay.js.txt"
       type="text/javascript"
     ></script>
-    <script src="./js/loaders/FBXLoader.js" type="text/javascript"></script>
-    <script src="./js/loaders/RGBELoader.js" type="text/javascript"></script>
-    <script src="./js/loaders/OBJLoader.js" type="text/javascript"></script>
-    <script src="./js/loaders/GLTFLoader.js" type="text/javascript"></script>
-    <script src="./lib/inflate.js" type="text/javascript"></script>
-    <script src="./lib/perlin.js" type="text/javascript"></script>
-    <script src="./lib/ammo.js" type="text/javascript"></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d146f70620b0a2cc6eab8_stats.min.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d146ff572824951ef0b71_dat.gui.min.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d18e470620b6a18c714fa_OrbitControls.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d13ef77408d3b4c72ea15_FBXLoader.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d13ef96e6ef382b5921dd_RGBELoader.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d13ef4cc38f62b3945a6e_GLTFLoader.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d1320f07e6366379fc388_perlin.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d1320f07e6366379fc388_perlin.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d13203ea9355bf2f84252_ammo.js.txt"
+      type="text/javascript"
+    ></script>
     <script
       src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d09e46c0ae02068543a07_WEBGL.js.txt"
       type="text/javascript"
     ></script>
-    <script src="./lib/shake.js" type="text/javascript"></script>
-    <script src="./lib/main.js" type="text/javascript"></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d132070620b0c1ac6db77_shake.js.txt"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://uploads-ssl.webflow.com/635c85e9b59636d3be5c617a/635d132077408d3db472dfb2_main.js.txt"
+      type="text/javascript"
+    ></script>
     <script src="./lib/3D.js" type="text/javascript"></script>
   </body>
 </html>
