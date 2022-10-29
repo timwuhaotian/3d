@@ -174,8 +174,6 @@ var objectsURI = [
   },
 ];
 
-var completedQueue = [];
-
 var colliders = {
   website: [3, 5, 3],
   nextimage: [2.7, 2.7, 2.7],
@@ -362,6 +360,38 @@ function initGraphics() {
 
   var textureLoader = new THREE.TextureLoader(manager);
 
+  // hdri = textureLoader.load('./images/panny-yu.png');
+  // hdri.mapping = THREE.SphericalReflectionMapping;
+
+  // hervisions_hdri = textureLoader.load('./images/yunpei-li.png');
+  // hervisions_hdri.mapping = THREE.SphericalReflectionMapping;
+
+  // hervisions_hdri2 = textureLoader.load('./images/yushan-liu.png');
+  // hervisions_hdri2.mapping = THREE.SphericalReflectionMapping;
+
+  // revision_hdri = textureLoader.load('./images/h1.png');
+  // revision_hdri.mapping = THREE.SphericalReflectionMapping;
+
+  // custom_hdri = textureLoader.load('./images/h1.png');
+  // custom_hdri.flipY = false;
+  // custom_hdri.encoding = THREE.sRGBEncoding;
+  // custom_hdri.mapping = THREE.SphericalReflectionMapping;
+
+  // screenD = textureLoader.load(screenDesktop.url);
+  // screenD.wrapS = THREE.RepeatWrapping;
+  // screenD.wrapT = THREE.RepeatWrapping;
+  // screenD.repeat.set(1, 1 / screenDesktop.num);
+
+  // screenT = textureLoader.load(screenTablet.url);
+  // screenT.wrapS = THREE.RepeatWrapping;
+  // screenT.wrapT = THREE.RepeatWrapping;
+  // screenT.repeat.set(1, 1 / screenTablet.num);
+
+  // screenM = textureLoader.load(screenMobile.url);
+  // screenM.wrapS = THREE.RepeatWrapping;
+  // screenM.wrapT = THREE.RepeatWrapping;
+  // screenM.repeat.set(1, 1 / screenMobile.num);
+
   var manager = new THREE.LoadingManager();
   manager.onProgress = function (item, loaded, total) {
     // console.log( item, loaded, total );
@@ -370,42 +400,41 @@ function initGraphics() {
   var svg = document.getElementById('svg-object');
   $.LoadingOverlay('show');
   NProgress.start();
-  importObjects(manager);
+  importObjects(0, manager);
 }
 
-function importObjects(manager) {
+function importObjects(index, manager) {
+  if (index >= objectsURI.length) {
+    createObjects();
+    return;
+  }
   var glbLoader = new THREE.GLTFLoader(manager);
-  objectsURI.forEach((glb) => {
-    glbLoader.load(glb.uri, function (readObj) {
-      // ./glb/visual-qr-centre-stay-still.glb
-      if (glb.uri.indexOf('visual-qr-centre-stay-still.glb') !== -1) {
-        var box = new THREE.Box3().setFromObject(readObj.scene);
-        var center = new THREE.Vector3();
-        box.getCenter(center);
-        readObj.scene.position.sub(center); // center the model
-        readObj.scene.rotation.y = 0;
-        readObj.scene.rotation.x = (-90 * Math.PI) / 180;
-        readObj.scene.rotation.z = 0;
-        readObj.scene.scale.set(3, 3, 3);
-        scene.add(readObj.scene);
-        completedQueue.push(true);
-        return;
-      }
-      readObj.scene &&
-        readObj.scene.traverse(function (child) {
-          if (child.isMesh) {
-            child.material.transparent = true;
-            // child.material.envMap = custom_hdri;
-          }
-        });
-      readObj.scene.userData.customScale = glb.scale;
-      objs.push(readObj.scene);
-      completedQueue.push(true);
-      if (completedQueue.length === objectsURI.length) {
-        createObjects();
-        return;
-      }
-    });
+  var currentObject = objectsURI[index];
+  glbLoader.load(currentObject.uri, function (readObj) {
+    // ./glb/visual-qr-centre-stay-still.glb
+    if (currentObject.uri.indexOf('visual-qr-centre-stay-still.glb') !== -1) {
+      var box = new THREE.Box3().setFromObject(readObj.scene);
+      var center = new THREE.Vector3();
+      box.getCenter(center);
+      readObj.scene.position.sub(center); // center the model
+      readObj.scene.rotation.y = 0;
+      readObj.scene.rotation.x = (-90 * Math.PI) / 180;
+      readObj.scene.rotation.z = 0;
+      readObj.scene.scale.set(3, 3, 3);
+      scene.add(readObj.scene);
+      importObjects(index + 1, manager);
+      return;
+    }
+    readObj.scene &&
+      readObj.scene.traverse(function (child) {
+        if (child.isMesh) {
+          child.material.transparent = true;
+          // child.material.envMap = custom_hdri;
+        }
+      });
+    readObj.scene.userData.customScale = currentObject.scale;
+    objs.push(readObj.scene);
+    importObjects(index + 1, manager);
   });
 }
 
